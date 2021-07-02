@@ -14,5 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('starting_page');
 });
+
+Route::get('/info', function () {
+    return view('info');
+});
+
+
+/*
+Route::get('/test/{name}/foo/{age}', 'HobbyController@index');
+*/
+Route::resource('hobby', 'HobbyController');
+Route::resource('tag', 'TagController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
